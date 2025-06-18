@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fdf3f9;
+  color: #3a2b2f;
+  overflow: hidden;
+}
+
+.page {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.page.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cover */
+.cover-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+.title-text {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  color: #ff6fa5;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+#startButton {
+  padding: 12px 24px;
+  background: #ffb6d1;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#startButton:hover {
+  background: #e58cb1;
+}
+
+/* Good Morning */
+.text-container {
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 30px;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  text-align: left;
+  animation: fadeInText 1.5s ease-in-out forwards;
+  z-index: 1;
+  white-space: pre-wrap;
+}
+
+.text-container::after {
+  content: "|";
+  animation: blink 1s infinite;
+  color: #ff88aa;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+@keyframes fadeInText {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Love */
+.hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  font-size: 20px;
+  opacity: 0;
+  animation: float 5s ease-out forwards;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
